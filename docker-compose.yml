@@ -1,0 +1,13 @@
+# Local lab Keycloak. Throwaway credentials: do NOT reuse anywhere real.
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev --import-realm
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    volumes:
+      # Put an exported realm JSON in ./keycloak and it loads on start.
+      - ./keycloak:/opt/keycloak/data/import
