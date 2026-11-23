@@ -47,9 +47,12 @@ Codes are single-use and short-lived, so use a fresh one for every attempt.
 
 ### 4. Decode a token payload
 ```
-Used www.jwt.io
-```
+python3 -c "import sys,json,base64;p=sys.argv[1].split('.')[1];p+='='*(-len(p)%4);print(json.dumps(json.loads(base64.urlsafe_b64decode(p)),indent=2))" <ACCESS_OR_ID_TOKEN>
 
+OR
+
+use www.jwt.io (fine for test tokens)
+```
 
 ## What I observed
 Decoded ID token and access token (synthetic data only). Which claims surprised you?
@@ -71,11 +74,6 @@ Each test used a fresh authorization code and changed exactly one thing.
 | C | Everything correct (control) | Tokens issued | Baseline works |
 | D | Reused a code a second time | `invalid_grant: Code not valid` | Codes are single-use |
 
-## Takeaways
--
-
-## Limitations
--
 
 ## References
 - RFC 6749, RFC 7636, OIDC Core
