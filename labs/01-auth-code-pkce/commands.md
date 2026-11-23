@@ -35,6 +35,10 @@ Codes are single-use and short-lived: be quick.
 ## 4. Decode a token payload
 ```
 python3 -c "import sys,json,base64;p=sys.argv[1].split('.')[1];p+='='*(-len(p)%4);print(json.dumps(json.loads(base64.urlsafe_b64decode(p)),indent=2))" <ACCESS_OR_ID_TOKEN>
+
+OR
+
+use www.jwt.io (fine for test tokens)
 ```
 
 ## 5. Break it (record results in README.md)
