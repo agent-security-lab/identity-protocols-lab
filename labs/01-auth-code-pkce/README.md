@@ -55,7 +55,8 @@ use www.jwt.io (fine for test tokens)
 ```
 
 ## What I observed
-Decoded ID token and access token (synthetic data only). Which claims surprised you?
+**aud** has different values for ID token and access token
+
 
 ## What broke
 1. **Typed the placeholder literally.** I ran `CODE=<paste code>`. Bash treated `<` and `>` as redirection and printed a syntax error, so the curl sent an empty code and got `Code not valid`.
